@@ -4,6 +4,7 @@ namespace ShibuyaKosuke\LaravelAddressCodeJapan;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use ShibuyaKosuke\LaravelAddressCodeJapan\Console\AddressCodeCommand;
+use ShibuyaKosuke\LaravelAddressCodeJapan\Console\AddressCodeNormalizeCommand;
 
 /**
  * Class ServiceProvider
@@ -37,15 +38,21 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider implements Def
             return new AddressCodeCommand($app);
         });
 
+        $this->app->singleton('command.address_code.normalize', static function () {
+            return new AddressCodeNormalizeCommand();
+        });
+
         $this->commands([
-            'command.address_code_japan'
+            'command.address_code_japan',
+            'command.address_code.normalize'
         ]);
     }
 
     public function provides(): array
     {
         return [
-            'command.address_code_japan'
+            'command.address_code_japan',
+            'command.address_code.normalize'
         ];
     }
 }
