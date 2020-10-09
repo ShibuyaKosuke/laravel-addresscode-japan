@@ -30,6 +30,14 @@ php artisan address:import
 
 コマンドを繰り返したときも、正常に動作しますが、前回ダウンロードしたCSVファイルとの差分変更がない場合はデータベースへの投入は行われません。
 強制的に上書きしたい場合は、`--force` オプションを指定してください。
+
+### 各種マスタの作成
+
+```bash
+php artisan address:normalize
+```
+
+を実行すると、`prefectures`, `cities`, `towns` テーブルに正規化したデータを投入します。
  
 ## 設定ファイル
 
