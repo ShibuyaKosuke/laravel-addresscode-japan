@@ -16,11 +16,15 @@ composer require shibuyakosuke/laravel-addresscode-japan
 
 ## 使用方法
 
+### マイグレーションの実行
+
 ```bash
 php artisan migrate
 ```
 
 を実行して、データを保存するためのテーブルを作成します。
+
+### データのインポート
 
 ```bash
 php artisan address:import
